@@ -34,8 +34,39 @@
                 <target>1.6</target>
             </configuration>
       </plugin>
+        <plugin>
+            <groupId>org.apache.maven.plugins</groupId>
+            <artifactId>maven-jar-plugin</artifactId>
+            <configuration>
+                <archive>
+                    <manifest>
+                        <addClasspath>true</addClasspath>
+                        <mainClass>com.moran.arngame.gameconsole.GameConsole</mainClass>
+                        <classpathPrefix>target/classes/</classpathPrefix>
+                    </manifest>
+                </archive>
+            </configuration>
+        </plugin>
+      <plugin>
+          <groupId>org.codehaus.mojo</groupId>
+          <artifactId>exec-maven-plugin</artifactId>
+          <version>1.2.1</version>
+          <executions>
+              <execution>
+                  <goals>
+                      <goal>exec</goal>
+                  </goals>
+              </execution>
+          </executions>
+          <configuration>
+              <mainClass>com.moran.arngame.gameconsole.GameConsole</mainClass>
+              <executable>java</executable>
+          </configuration>
+      </plugin>
     </plugins>
-  </build>  
+  </build>
+
+
   
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
