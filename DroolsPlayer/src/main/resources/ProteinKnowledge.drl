@@ -1,0 +1,59 @@
+import com.moran.arngame.proteinsynthesizerlib.Aminoacid;
+import com.moran.arngame.proteinsynthesizerlib.GameManager;
+import com.moran.arngame.proteinsynthesizerlib.Protein;
+import com.moran.arngame.proteinsynthesizerlib.ribosomes.Ribosome;
+import com.moran.arngame.droolsplayer.ComputationResult;
+import com.moran.arngame.droolsplayer.DroolsGamePlayer;
+
+global com.moran.arngame.droolsplayer.ComputationResult cr;
+
+rule "BasicDissolving"
+    activation-group "basic"
+    salience 20
+when
+    Protein($form: formula, $own: owner) 
+    DroolsGamePlayer($id: id)
+    eval($own != $id) 
+    Protein($form2: formula, owner==$id) 
+    eval($form.length() > $form2.length()) 
+    GameManager($len: currentChainLength)
+then
+    int init=$form.length()/2- ($form.length()/2)%2;
+
+    cr.setChain("GA" + cr.complement($form.substring(init, init+2)) + "CC" + cr.fill($len-6));
+end
+
+rule "BasicCombination"
+    activation-group "basic"
+    salience 10
+    dialect 'java'
+when
+    Protein($p1: formula) 
+    Protein($p2: formula) 
+    not ComputationResult(closed==true) 
+    GameManager($len: currentChainLength) 
+    eval($p1.length() + $p2.length() + 6 < $len)
+then
+    cr.setChain("TG" + $p1 + "GG" + $p2 + "CA" + cr.fill($len-$p1.length()-$p1.length()-6));
+end
+
+rule "BasicProteinCreation"
+    activation-group "basic"
+    salience 10
+    dialect 'java'
+when
+    Aminoacid($xx: formula) 
+    not ComputationResult(closed==true) 
+    GameManager($l: currentChainLength)
+then
+    cr.setChain("TA" + $xx + "GAT" + cr.fill($l-7));
+end
+
+rule "DefaultMove"
+    activation-group "basic"
+    salience 0
+when
+    GameManager($len: currentChainLength)
+then
+    cr.setChain("CTTAAG" + cr.fill($len-6));
+end
