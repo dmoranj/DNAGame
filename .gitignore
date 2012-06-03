@@ -2,3 +2,6 @@
 *.iml
 .svn/
 target
+.classpath
+.project
+.settings/
