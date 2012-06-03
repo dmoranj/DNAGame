@@ -4,3 +4,5 @@ in the pool or from other proteins, while you try to dissolve other players'
 ones.
 
 Each player can issue an DNA chain in its turn, composed of the letters A, C, G, T.
+The length of the chain is fixed in each turn and will increase as more chains are
+issued.
