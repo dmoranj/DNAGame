@@ -8,3 +8,9 @@ ones.
 Each player can issue an DNA chain in its turn, composed of the letters A, C, G, T.
 The length of the chain is fixed in each turn and will increase as more chains are
 issued.
+
+Each chain is processed by each one of the n ribosomes in game. Each ribosome makes
+a different effect, and has a different activation pattern. The ribosomes are executed
+in all the possible matches of the pattern (all the possible substrings, without 
+descarding characters).
+
