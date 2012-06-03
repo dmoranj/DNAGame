@@ -1,10 +1,15 @@
 ARN Game
+==================
 
+Description
+------------
 ARN Game is a computer-human challenge of instruction compression.
 The objective is to create as much proteins as you can from the aminoacids 
 in the pool or from other proteins, while you try to dissolve other players'
 ones.
 
+Game Play
+------------
 Each player can issue an DNA chain in its turn, composed of the letters A, C, G, T.
 The length of the chain is fixed in each turn and will increase as more chains are
 issued.
