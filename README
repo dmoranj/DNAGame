@@ -19,3 +19,12 @@ a different effect, and has a different activation pattern. The ribosomes are ex
 in all the possible matches of the pattern (all the possible substrings, without 
 descarding characters).
 
+These are the default Ribosomes:
+
+- Aminoacid creation:
+
+- Protein creation:
+
+- Protein dissolve:
+
+
