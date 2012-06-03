@@ -10,6 +10,10 @@ ones.
 
 Game Play
 ------------
+Each game has two molecule pools:
+- The aminoacid repository:
+- The protein repository:
+
 Each player can issue an DNA chain in its turn, composed of the letters A, C, G, T.
 The length of the chain is fixed in each turn and will increase as more chains are
 issued.
